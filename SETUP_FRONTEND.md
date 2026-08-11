@@ -29,7 +29,7 @@ git commit -m "Initial commit: Interview Prep Agent frontend"
 ```
 Create a new repo on GitHub (e.g. `interview-prep-agent-frontend`), then:
 ```bash
-git remote add origin https://github.com/Mohsin2106/interview-prep-agent-frontend.git
+git remote add origin https://github.com/nitish-115/interview-agent-frontend
 git branch -M main
 git push -u origin main
 ```
