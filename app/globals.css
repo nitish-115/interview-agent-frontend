@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #eef0f5;
+  --bg: #08090d;
+  --card: #14161d;
+  --card-hover: #1a1d26;
+  --border: #262a36;
+  --muted: #8b8fa3;
+  --violet: #8b7fff;
+  --violet-soft: rgba(139, 127, 255, 0.14);
+  --cyan: #5ee7d9;
+  --gold: #f2c14e;
+  --good: #4fd1ae;
+  --good-soft: rgba(79, 209, 174, 0.14);
+  --warn: #f2c14e;
+  --warn-soft: rgba(242, 193, 78, 0.14);
+  --bad: #fb7c74;
+  --bad-soft: rgba(251, 124, 116, 0.14);
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body), sans-serif;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+::selection {
+  background: var(--violet-soft);
+  color: var(--violet);
+}
+
+/* Cinematic animated background */
+.cinematic-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(139,127,255,0.18), transparent),
+              var(--bg);
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  animation: float-orb 18s ease-in-out infinite;
+}
+
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.1); }
+  66% { transform: translate(-30px, 20px) scale(0.95); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(139,127,255,0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(139,127,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(139,127,255,0); }
+}
+.animate-pulse-ring { animation: pulse-ring 2s infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, var(--card) 25%, var(--card-hover) 50%, var(--card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+}
